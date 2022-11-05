@@ -35,7 +35,7 @@ Route::get('/dashboard', [DashboardController::class, 'show'])->middleware('chec
 
 Route::get('/profile', [ProfileController::class, 'show'])->middleware('checkLogin')->middleware('preventBackLogout');
 
-// Route::post('/updateprofile', [RegistrationController::class, 'signUp']);
+
 Route::get('/updateprofile', [ProfileController::class, 'updateProfile'])->middleware('checkLogin')->middleware('preventBackLogout');
 
 Route::get('/logout', [LoginController::class, 'logOut'])->middleware('preventBackLogout');
