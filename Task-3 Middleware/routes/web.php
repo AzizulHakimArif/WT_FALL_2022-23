@@ -24,20 +24,13 @@ Route::get('/', function () {
 
 
 Route::get('/register', [RegistrationController::class, 'getForm'])->middleware('checkLogout')->middleware('preventBackLogout');
-
 Route::post('/register', [RegistrationController::class, 'signUp'])->middleware('checkLogout')->middleware('preventBackLogout');
-
 Route::get('/login', [LoginController::class, 'getForm'])->middleware('checkLogout')->middleware('preventBackLogout');
-
 Route::post('/login', [LoginController::class, 'signIn'])->middleware('checkLogout')->middleware('preventBackLogout');
-
 Route::get('/dashboard', [DashboardController::class, 'show'])->middleware('checkLogin')->middleware('preventBackLogout');
-
 Route::get('/profile', [ProfileController::class, 'show'])->middleware('checkLogin')->middleware('preventBackLogout');
 
-
+// Route::post('/updateprofile', [RegistrationController::class, 'signUp']);
 Route::get('/updateprofile', [ProfileController::class, 'updateProfile'])->middleware('checkLogin')->middleware('preventBackLogout');
-
 Route::get('/logout', [LoginController::class, 'logOut'])->middleware('preventBackLogout');
-
 Route::post('/updateprofile', [ProfileController::class, 'update'])->middleware('checkLogin')->middleware('preventBackLogout');
